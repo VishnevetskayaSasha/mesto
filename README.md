@@ -14,6 +14,6 @@ __Во время выполнения проекта мы:__
 3. Закрепили весь пройденный ранее материал.
 
 __Ссылка на GitHub Pages:__
-
+https://vishnevetskayasasha.github.io/mesto/
 
 
