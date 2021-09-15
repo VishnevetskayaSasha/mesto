@@ -1,0 +1,28 @@
+.popup__button-save {
+  background-image: url(../../../images/button-save.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  width: 358px;
+  height: 50px;
+  margin: 48px auto 37px;
+  padding: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.popup__button-save:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 555px) {
+  .popup__button-save {
+    width: 238px;
+    height: 46px;
+    margin: 45px auto 25px;
+  }
+}
