@@ -8,12 +8,14 @@ const profName = document.querySelector(".profile__name");
 const profDescription = document.querySelector(".profile__description");
 
 const formElement = document.querySelector(".popup__container");
-const popupName = formElement.querySelector(".popup__name");
-const popupDescription = formElement.querySelector(".popup__description");
+const popupName = formElement.querySelector(".popup__input_name");
+const popupDescription = formElement.querySelector(".popup__input_description");
 const saveBnt = formElement.querySelector(".popup__button-save");
 
 function popupToggle() {
   popup.classList.toggle("popup_open");
+  popupName.value=profName.textContent;
+  popupDescription.value=profDescription.textContent;
 }
 
 popupOpenBnt.addEventListener("click", popupToggle);

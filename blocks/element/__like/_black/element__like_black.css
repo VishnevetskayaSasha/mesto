@@ -1,10 +1,5 @@
 .element__like_black {
   background-image: url(../../../../images/like-black.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 22px;
-  height: 19px;
 }
 
 .element__like_black:hover {
