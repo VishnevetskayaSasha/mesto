@@ -37,11 +37,11 @@ const initialCards = [
   },
   {
     name: "Гора Эльбрус",
-    link: "images/elbrus.png"
+    link: "https://rusgeo.me/upload/medialibrary/dfd/image_5908719_1920-_1_.jpg"
   },
   {
     name: "Домбай",
-    link: "images/dombay.png"
+    link: "https://c1.staticflickr.com/3/2857/34131350951_ae3b3c56b9_o.jpg"
   },
   {
     name: "Байкал",
@@ -116,7 +116,6 @@ popupAddCloseBnt.addEventListener("click", popupCardsToggle);
   popupFullScreen.classList.toggle("popup_open");
   popuoFoto.src = event.target.src;
   popupFotoName.textContent = event.currentTarget.parentElement.querySelector(".element__name").textContent;
-  popupFullScreenClose.classList.toggle(".popup__button-close-form");
 }
 
 popupFullScreenOpen.addEventListener("click", popupFullScreenToggle);
@@ -131,5 +130,6 @@ function formSubmitHandler(event) {
 }
 
 popupProfile.addEventListener("submit", formSubmitHandler);
+
 
 
