@@ -1,5 +1,5 @@
 .popup__container {
-  display: none;
+  display: flex;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   flex-direction: column;
@@ -10,5 +10,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-}
-
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+} 

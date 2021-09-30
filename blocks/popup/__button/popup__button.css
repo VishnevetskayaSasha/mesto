@@ -1,5 +1,4 @@
-.popup__button-save {
-  background-image: url(../../../images/button-save.svg);
+.popup__button {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -14,13 +13,13 @@
   transition: opacity 0.5s;
 }
 
-.popup__button-save:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
 @media screen and (max-width: 555px) {
-  .popup__button-save {
+  .popup__button {
     width: 238px;
     height: 46px;
     margin: 45px auto 25px;

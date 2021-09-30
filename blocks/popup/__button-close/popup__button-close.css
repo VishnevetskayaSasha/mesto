@@ -9,9 +9,9 @@
   padding: 0;
   opacity: 1;
   transition: opacity 0.5s;
-  position: relative;
-  bottom: 8px;
-  left: 239px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
 }
 
 .popup__button-close:hover {
@@ -23,7 +23,6 @@
   .popup__button-close {
     width: 20px;
     height: 20px;
-    bottom: 16px;
-    left: 130px;
+    top: -36;
   }
 }
