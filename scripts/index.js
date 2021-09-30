@@ -5,10 +5,10 @@ const popupFullScreen = document.querySelector(".popup__container_type_img") // 
 const popupOpenBnt = document.querySelector(".profile__button-edit"); // кнопка открытия попап редактирования профиля
 const popupCloseBnt = popupProfile.querySelector(".popup__button-close"); // кнопка закрытия попап редактирования профиля
 
-const popupAddOpenBnt = document.querySelector(".profile__button-add"); // кнопка открытия попап добавления новых карточек
+const popupAddOpenBnt = popupCards.querySelector(".profile__button-add"); // кнопка открытия попап добавления новых карточек
 const popupAddCloseBnt = popupCards.querySelector(".popup__button-close"); // кнопка закрытия попап добавления новых карточек
 
- const popupFullScreenOpen = popupFullScreen.querySelector(".element__foto"); // кнопка открытия попап фулскрин фотки
+ const popupFullScreenOpen = document.querySelector(".element__foto"); // кнопка открытия попап фулскрин фотки
  const popupFullScreenClose = popupFullScreen.querySelector(".popup__button-close") // кнопка закрытия попап фулскрин фотки
 
 const deleteBnt = document.querySelectorAll(".element__delete"); // кнопка удаления карточек
@@ -108,7 +108,7 @@ function popupCardsToggle() {
   popupCards.classList.toggle("popup_open");
 }
 
-popupAddOpenBnt.addEventListener("click", popupCardsToggle);
+//popupAddOpenBnt.addEventListener("click", popupCardsToggle);
 popupAddCloseBnt.addEventListener("click", popupCardsToggle);
 
  //функция закрытия-открытия фулскрин фотки
@@ -118,7 +118,7 @@ popupAddCloseBnt.addEventListener("click", popupCardsToggle);
   popupFotoName.textContent = event.currentTarget.parentElement.querySelector(".element__name").textContent;
 }
 
-popupFullScreenOpen.addEventListener("click", popupFullScreenToggle);
+//popupFullScreenOpen.addEventListener("click", popupFullScreenToggle);
 popupFullScreenClose.addEventListener("click", popupFullScreenToggle);
 
 
