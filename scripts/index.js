@@ -5,7 +5,7 @@ const popupFullScreen = document.querySelector(".popup__container_type_img") // 
 const popupOpenBnt = document.querySelector(".profile__button-edit"); // кнопка открытия попап редактирования профиля
 const popupCloseBnt = popupProfile.querySelector(".popup__button-close"); // кнопка закрытия попап редактирования профиля
 
-const popupAddOpenBnt = popupCards.querySelector(".profile__button-add"); // кнопка открытия попап добавления новых карточек
+const popupAddOpenBnt = document.querySelector(".profile__button-add"); // кнопка открытия попап добавления новых карточек
 const popupAddCloseBnt = popupCards.querySelector(".popup__button-close"); // кнопка закрытия попап добавления новых карточек
 
  const popupFullScreenOpen = document.querySelector(".element__foto"); // кнопка открытия попап фулскрин фотки
@@ -20,7 +20,7 @@ const popupName = popupProfile.querySelector(".popup__input_type_name");  // ф�
 const popupDescription = popupProfile.querySelector(".popup__input_type_description"); // форма описания 
 const saveBnt = popupProfile.querySelector(".popup__button_type_save"); // кнопка сохранения изменений профиля
 
-const createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
+let createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
 
 const cardsTemplate = document.querySelector(".cards-template"); // блок Template
 const elementsList = document.querySelector(".elements__list"); // контейнер списка 
@@ -108,7 +108,7 @@ function popupCardsToggle() {
   popupCards.classList.toggle("popup_open");
 }
 
-//popupAddOpenBnt.addEventListener("click", popupCardsToggle);
+popupAddOpenBnt.addEventListener("click", popupCardsToggle);
 popupAddCloseBnt.addEventListener("click", popupCardsToggle);
 
  //функция закрытия-открытия фулскрин фотки
