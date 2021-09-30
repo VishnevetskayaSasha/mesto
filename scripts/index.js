@@ -20,7 +20,7 @@ const popupName = popupProfile.querySelector(".popup__input_type_name");  // ф�
 const popupDescription = popupProfile.querySelector(".popup__input_type_description"); // форма описания 
 const saveBnt = popupProfile.querySelector(".popup__button_type_save"); // кнопка сохранения изменений профиля
 
-let createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
+const createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
 
 const cardsTemplate = document.querySelector(".cards-template"); // блок Template
 const elementsList = document.querySelector(".elements__list"); // контейнер списка 
