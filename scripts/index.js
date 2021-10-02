@@ -20,13 +20,13 @@ const popupName = popupProfile.querySelector(".popup__input_type_name");  // ф�
 const popupDescription = popupProfile.querySelector(".popup__input_type_description"); // форма описания 
 const saveBnt = popupProfile.querySelector(".popup__button_type_save"); // кнопка сохранения изменений профиля
 
-let createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
+const createBnt = popupCards.querySelector(".popup__button_type_create"); // кнопка публикации новой карточки 
 
 const cardsTemplate = document.querySelector(".cards-template"); // блок Template
 const elementsList = document.querySelector(".elements__list"); // контейнер списка 
 const contentForm =  popupCards.querySelector(".popup__content") //форма попапа для добавления новых карточек
 
- const popuoFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
+ const popupFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
 const popupFotoName = popupFullScreen.querySelector(".popup__foto-name"); // текст фотки фулскрин попапа
 
 
@@ -57,76 +57,81 @@ const initialCards = [
   },
 ];
 
-initialCards.reverse(); // меняем порядок элементов в массиве, чтоб отображалось все в нужном порядке и новые элементы вставали в начало
+addCards(initialCards);
 
-function likeToggle (event) {  // функция лайка
+// функция лайка
+function likeToggle (event) {  
   event.target.classList.toggle("element__like_black");
 }
 
-function delitCard (event) { // функция удаления 
-  event.target.closest(".element").remove();
+// функция удаления
+function delitCard(event) {
+  const card = event.target.closest(".element");
+  card.remove();
 }
 
  function renderElements(item) {
     const newCards = cardsTemplate.content.cloneNode(true); // клонируем элемент
     newCards.querySelector(".element__name").textContent = item.name;  // название места из массива
     newCards.querySelector(".element__foto").src = item.link; // ссылка из массива
-    newCards.querySelector(".element__delete").addEventListener("click", delitCard) // для удаления
-    newCards.querySelector(".element__like").addEventListener("click", likeToggle) // для лайка
-    newCards.querySelector(".element__foto").addEventListener("click", popupFullScreenToggle) // для картинки на полный экран
-    elementsList.prepend(newCards); // добавляем на страницу
+    newCards.querySelector(".element__foto").alt = item.name; // alt
+    addCardАttribute(newCards);
+    return newCards;
  }
 
  function addElements(event) {
     event.preventDefault(); // чтоб страница не перезагружалась при отправке формы
-
     const newCardText = event.currentTarget.querySelector(".popup__input_type_title").value; // задаем название карточки 
     const newCardLink = event.currentTarget.querySelector(".popup__input_type_link").value; // задаем ссылку на карточку
-
-    renderElements({ name: newCardText, link: newCardLink});
-    
+    const newCards = renderElements({ name: newCardText, link: newCardLink});
+    elementsList.prepend(newCards); // добавляем элемент на страницу
     event.currentTarget.reset(); // чтоб в полях не сохранялись введенные данные  
-    popupCardsToggle(); //  чтоб автоматом закрывался popup после нажатия на "Создать"
+    toggleModal(popupCards); //  чтоб автоматом закрывался popup после нажатия на "Создать"
  }
 
  contentForm.addEventListener("submit", addElements); 
- initialCards.map(renderElements);
 
+ // функция добавления карточек
+ function addCards(cards) {
+  const newCards = cards.map(renderElements);
+  elementsList.prepend(...newCards);
+}
 
-// функция закрытия-открытия popup(редактирование профиля)
-function popupProfileToggle() {
-  popupProfile.classList.toggle("popup_open");
+function addCardАttribute(card) {
+  card.querySelector(".element__delete").addEventListener("click", delitCard); // для удаления
+  card.querySelector(".element__like").addEventListener("click", likeToggle); // для лайка 
+  card.querySelector(".element__foto").addEventListener("click", openPopupFull); // для открытия
+}
+
+function openPopupFull (event) {
+  toggleModal(popupFullScreen);
+  popupFoto.src = event.target.src; // картинка
+  popupFotoName.textContent = event.currentTarget.parentElement.querySelector(".element__name").textContent; // подпись 
+  popupFoto.alt = event.currentTarget.parentElement.querySelector(".element__name").textContent; // alt к картинке
+}
+
+// универсальное открытие закрытие попапов
+function toggleModal(modal) {
+  modal.classList.toggle("popup_open");
+}
+
+popupOpenBnt.addEventListener("click", () => toggleModal(popupProfile), popupProfileEdit());
+popupCloseBnt.addEventListener("click", () => toggleModal(popupProfile));
+popupAddOpenBnt.addEventListener("click", () => toggleModal(popupCards));
+popupAddCloseBnt.addEventListener("click", () => toggleModal(popupCards));
+popupFullScreenClose.addEventListener("click", () => toggleModal(popupFullScreen));
+
+/////////  Попап редактирования профиля
+function popupProfileEdit() {
   popupName.value=profName.textContent;
   popupDescription.value=profDescription.textContent;
 }
-
-popupOpenBnt.addEventListener("click", popupProfileToggle);
-popupCloseBnt.addEventListener("click", popupProfileToggle);
- 
-// функция закрытия-открытия popup(добавления карточек)
-function popupCardsToggle() {
-  popupCards.classList.toggle("popup_open");
-}
-
-popupAddOpenBnt.addEventListener("click", popupCardsToggle);
-popupAddCloseBnt.addEventListener("click", popupCardsToggle);
-
- //функция закрытия-открытия фулскрин фотки
- function popupFullScreenToggle(event) {
-  popupFullScreen.classList.toggle("popup_open");
-  popuoFoto.src = event.target.src;
-  popupFotoName.textContent = event.currentTarget.parentElement.querySelector(".element__name").textContent;
-}
-
-//popupFullScreenOpen.addEventListener("click", popupFullScreenToggle);
-popupFullScreenClose.addEventListener("click", popupFullScreenToggle);
-
 
 function formSubmitHandler(event) {
   event.preventDefault();
   profName.textContent=popupName.value;
   profDescription.textContent=popupDescription.value;
-  popupProfileToggle();
+  toggleModal(popupProfile);
 }
 
 popupProfile.addEventListener("submit", formSubmitHandler);
