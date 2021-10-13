@@ -1,0 +1,12 @@
+.error {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #FF0000;
+  margin: 5px 0 13px 36px;
+}
+
+@media screen and (max-width: 555px) {
+  .error {
+    margin-left: 22px;
+  }
+}

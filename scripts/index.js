@@ -1,3 +1,5 @@
+const popups = document.querySelectorAll(".popup__container") // все попапы
+
 const popupProfile = document.querySelector(".popup__container_type_profile"); // попап редактирования профиля
 const popupCards = document.querySelector(".popup__container_type_cards"); // попап добавления новых карточек
 const popupFullScreen = document.querySelector(".popup__container_type_img") // попап фулскрин фотки
@@ -26,9 +28,9 @@ const cardsTemplate = document.querySelector(".cards-template"); // блок Tem
 const elementsList = document.querySelector(".elements__list"); // контейнер списка 
 const contentForm =  popupCards.querySelector(".popup__content") //форма попапа для добавления новых карточек
 
- const popupFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
+const popupFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
 const popupFotoName = popupFullScreen.querySelector(".popup__foto-name"); // текст фотки фулскрин попапа
-
+ 
 
 const initialCards = [
   {
@@ -59,6 +61,7 @@ const initialCards = [
 
 addCards(initialCards);
 
+// !!! Карточки !!!
 // функция лайка
 function likeToggle (event) {  
   event.target.classList.toggle("element__like_black");
@@ -87,6 +90,9 @@ function delitCard(event) {
     elementsList.prepend(newCards); // добавляем элемент на страницу
     event.currentTarget.reset(); // чтоб в полях не сохранялись введенные данные  
     toggleModal(popupCards); //  чтоб автоматом закрывался popup после нажатия на "Создать"
+    createBnt.setAttribute("disabled", "disabled");
+    createBnt.classList.add("popup__button_invalid"); // блокировка кнопки 
+
  }
 
  contentForm.addEventListener("submit", addElements); 
@@ -103,6 +109,7 @@ function addCardАttribute(card) {
   card.querySelector(".element__foto").addEventListener("click", openPopupFull); // для открытия
 }
 
+// функция открытия на фулскрин
 function openPopupFull (event) {
   toggleModal(popupFullScreen);
   popupFoto.src = event.target.src; // картинка
@@ -110,23 +117,32 @@ function openPopupFull (event) {
   popupFoto.alt = event.currentTarget.parentElement.querySelector(".element__name").textContent; // alt к картинке
 }
 
-// универсальное открытие закрытие попапов
+
+// !!! Универсальное открытие-закрытие попапов !!!
 function toggleModal(modal) {
-  modal.classList.toggle("popup_open");
+  modal.classList.toggle("popup_open"); // Метод toggle работает как add, если у элемента класс отсутствует, и как remove — если присутствует
+  if (modal.classList.contains("popup_open")) { // если попап открыт 
+    document.addEventListener("keydown", escClose); // добавляем обработчик
+  } else { // в ином случа
+    document.removeEventListener("keydown", escClose); // удаляем 
+  }
 }
 
-popupOpenBnt.addEventListener("click", () => toggleModal(popupProfile), popupProfileEdit());
+popupOpenBnt.addEventListener("click", () => popupProfileEdit(popupProfile));
 popupCloseBnt.addEventListener("click", () => toggleModal(popupProfile));
 popupAddOpenBnt.addEventListener("click", () => toggleModal(popupCards));
 popupAddCloseBnt.addEventListener("click", () => toggleModal(popupCards));
 popupFullScreenClose.addEventListener("click", () => toggleModal(popupFullScreen));
 
-/////////  Попап редактирования профиля
+//  !!! Попап редактирования профиля !!!
+// Открытие попапа 
 function popupProfileEdit() {
+  toggleModal(popupProfile);
   popupName.value=profName.textContent;
   popupDescription.value=profDescription.textContent;
 }
 
+// Добавление новой информации в поля профиля + закрытие
 function formSubmitHandler(event) {
   event.preventDefault();
   profName.textContent=popupName.value;
@@ -134,7 +150,24 @@ function formSubmitHandler(event) {
   toggleModal(popupProfile);
 }
 
-popupProfile.addEventListener("submit", formSubmitHandler);
+popupProfile.addEventListener("submit", formSubmitHandler); 
 
 
+// закрытие попап при нажатии на esc 
+function escClose(event) {
+  const popupАctive = document.querySelector(".popup_open");
+  if (event.key === "Escape") { // если нажата клавиша esc
+    toggleModal(popupАctive);  // удалить класс popup_open у открытого попапа
+  }
+} 
 
+// закрытие попап при клике на оверлей 
+function overlayClose(event) {
+  if (event.target === event.currentTarget) {
+    toggleModal(event.target);
+  }
+}
+
+popupProfile.addEventListener("click", overlayClose);
+popupCards.addEventListener("click", overlayClose);
+popupFullScreen.addEventListener("click", overlayClose);

@@ -40,21 +40,25 @@
   </div>
   <section class="popup">
     <div class="popup__container popup__container_type_profile">
-      <form name="edit-form" class="popup__content">
+      <form name="edit-form" class="popup__content" novalidate>
         <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="edit-name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name">
-        <input type="text" name="edit-description" placeholder="Исследователь океана" class="popup__input popup__input_type_description">
-        <button type="submit" class="popup__button popup__button_type_save"></button>
+        <input type="text" id="edit-name" name="edit-name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name" required  minlength="2" maxlength="40">
+        <span id="edit-name-error" class="error"></span>
+        <input type="text" id="edit-description" name="edit-description" placeholder="Исследователь океана" class="popup__input popup__input_type_description" required  minlength="2" maxlength="200">
+        <span id="edit-description-error" class="error"></span>
+        <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
       </form>
     </div>
     <div class="popup__container popup__container_type_cards">
-      <form name="add-form" class="popup__content">
+      <form name="add-form" class="popup__content" novalidate>
         <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" name="edit-title" placeholder="Название" class="popup__input popup__input_type_title">
-        <input type="text" name="edit-link" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link">
-        <button type="submit" class="popup__button popup__button_type_create"></button>
+        <input type="text" id="edit-title" name="edit-title" placeholder="Название" class="popup__input popup__input_type_title" required  minlength="2" maxlength="30">
+        <span id="edit-title-error" class="error"></span>
+        <input type="url" id="edit-link" name="edit-link" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link" required>
+        <span id="edit-link-error" class="error"></span>
+        <button type="submit" class="popup__button popup__button_type_create">Создать</button>
       </form>
     </div>
     <div class="popup__container popup__container_type_img">
@@ -76,5 +80,6 @@
     </li>
   </template>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
