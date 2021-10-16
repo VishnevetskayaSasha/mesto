@@ -38,20 +38,19 @@
       <p class="footer__signature">&copy; 2021 Mesto Russia </p>
     </footer>
   </div>
-  <section class="popup">
-    <div class="popup__container popup__container_type_profile">
-      <form name="edit-form" class="popup__content" novalidate>
-        <button type="button" class="popup__button-close"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" id="edit-name" name="edit-name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name" required  minlength="2" maxlength="40">
-        <span id="edit-name-error" class="error"></span>
-        <input type="text" id="edit-description" name="edit-description" placeholder="Исследователь океана" class="popup__input popup__input_type_description" required  minlength="2" maxlength="200">
-        <span id="edit-description-error" class="error"></span>
-        <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
-      </form>
-    </div>
-    <div class="popup__container popup__container_type_cards">
-      <form name="add-form" class="popup__content" novalidate>
+  <div class="popup popup_type_profile">
+    <form name="edit-form" class="popup__container" novalidate>
+      <button type="button" class="popup__button-close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input type="text" id="edit-name" name="edit-name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name" required  minlength="2" maxlength="40">
+      <span id="edit-name-error" class="error"></span>
+      <input type="text" id="edit-description" name="edit-description" placeholder="Исследователь океана" class="popup__input popup__input_type_description" required  minlength="2" maxlength="200">
+      <span id="edit-description-error" class="error"></span>
+      <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
+    </form>
+  </div>
+    <div class="popup popup_type_cards">
+      <form name="add-form" class="popup__container" novalidate>
         <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Новое место</h2>
         <input type="text" id="edit-title" name="edit-title" placeholder="Название" class="popup__input popup__input_type_title" required  minlength="2" maxlength="30">
@@ -61,14 +60,13 @@
         <button type="submit" class="popup__button popup__button_type_create">Создать</button>
       </form>
     </div>
-    <div class="popup__container popup__container_type_img">
+    <div class="popup popup_type_img">
       <figure class="figure">
         <img src="#" class="popup__foto" alt="">
         <button type="button" class="popup__button-close"></button>
         <figcaption><p class="popup__foto-name"></p></figcaption>
       </figure>
     </div>
-  </section>
   <template class="cards-template">
     <li class="element">
        <img src="#" class="element__foto" alt="">

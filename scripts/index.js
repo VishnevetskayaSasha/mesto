@@ -1,8 +1,8 @@
-const popups = document.querySelectorAll(".popup__container") // все попапы
+const popups = document.querySelectorAll(".popup") // все попапы
 
-const popupProfile = document.querySelector(".popup__container_type_profile"); // попап редактирования профиля
-const popupCards = document.querySelector(".popup__container_type_cards"); // попап добавления новых карточек
-const popupFullScreen = document.querySelector(".popup__container_type_img") // попап фулскрин фотки
+const popupProfile = document.querySelector(".popup_type_profile"); // попап редактирования профиля
+const popupCards = document.querySelector(".popup_type_cards"); // попап добавления новых карточек
+const popupFullScreen = document.querySelector(".popup_type_img") // попап фулскрин фотки
 
 const popupOpenBnt = document.querySelector(".profile__button-edit"); // кнопка открытия попап редактирования профиля
 const popupCloseBnt = popupProfile.querySelector(".popup__button-close"); // кнопка закрытия попап редактирования профиля
@@ -26,7 +26,7 @@ const createBnt = popupCards.querySelector(".popup__button_type_create"); // к�
 
 const cardsTemplate = document.querySelector(".cards-template"); // блок Template
 const elementsList = document.querySelector(".elements__list"); // контейнер списка 
-const contentForm =  popupCards.querySelector(".popup__content") //форма попапа для добавления новых карточек
+const contentForm =  popupCards.querySelector(".popup__container") //форма попапа для добавления новых карточек
 
 const popupFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
 const popupFotoName = popupFullScreen.querySelector(".popup__foto-name"); // текст фотки фулскрин попапа
@@ -155,9 +155,9 @@ popupProfile.addEventListener("submit", formSubmitHandler);
 
 // закрытие попап при нажатии на esc 
 function escClose(event) {
-  const popupАctive = document.querySelector(".popup_open");
   if (event.key === "Escape") { // если нажата клавиша esc
-    toggleModal(popupАctive);  // удалить класс popup_open у открытого попапа
+    const popupАctive = document.querySelector(".popup_open"); // находим открытый попап, открытый попап нужно находить только после нажатия на Escape
+    toggleModal(popupАctive);  // удалить класс popup_open у найденного открытого попапа 
   }
 } 
 

@@ -33,7 +33,7 @@ const setEventListers = (formElement, config) => {
   const submitButton = formElement.querySelector(config.submitButtonSelector);
   const isFormValid = formElement.checkValidity();
   toggleButtonState(submitButton, isFormValid, config);
-  
+
   Array.from(inputsList).forEach(inputElement => {
     inputElement.addEventListener("input", () => {
       const isFormValid = formElement.checkValidity();
@@ -51,7 +51,7 @@ const enableValidation = (config) => {
 }
 
 const validationConfig = {
-  formSelector: ".popup__content",
+  formSelector: ".popup__container",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_invalid",
