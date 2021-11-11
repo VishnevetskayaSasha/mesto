@@ -1,0 +1,36 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "__Описание проекта__  Данная работа была выполнена в соответствии с макетом из Figma [Ссылка на макет](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1). __В проекте реализовано:__  1. 6 фотографий удивительных мест России; 2. Блок, содержащий фотографию, ФИО, описание деятельности пользователя; 3. Всплывающий попап; 4. Корректное отображение страницы на разных расширениях экранов; 5. Файловая структура по БЭМ.",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishnevetskayaSasha/mesto.git"
+  },
+  "author": "Sasha Vishnevetskaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VishnevetskayaSasha/mesto/issues"
+  },
+  "homepage": "https://github.com/VishnevetskayaSasha/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "cssnano": "^5.0.10",
+    "html-loader": "^3.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  }
+}

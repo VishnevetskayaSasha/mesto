@@ -1,11 +1,9 @@
-import {toggleModal, popupFullScreen} from "./index.js"
-
-
 class Card {
-  constructor(data, cardSelector) {
+  constructor({data, handleCardClick}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this.handleCardClick = handleCardClick;
   }
 
   _getTemplate() { //Задача метода _getTemplate — вернуть разметку карточки через return.
@@ -13,7 +11,7 @@ class Card {
     const cardElement = document
       .querySelector(this._cardSelector) 
       .content
-      .querySelector('.element')
+      .querySelector(".element")
       .cloneNode(true);
 
     // вернём DOM-элемент карточки 
@@ -48,8 +46,8 @@ class Card {
         this._likeToggle();
       });
       // для открытия
-      this._element.querySelector(".element__foto").addEventListener("click", () => {
-        this._openPopupFull();
+      this._elementFoto.addEventListener("click", () => {
+        this.handleCardClick(); 
       });
     }
 
@@ -62,16 +60,6 @@ class Card {
     // функция лайка
     _likeToggle () {  
       this._element.querySelector(".element__like").classList.toggle("element__like_black");
-    }
-
-    // функция открытия на фулскрин
-    _openPopupFull() {
-      toggleModal(popupFullScreen);
-      const popupFoto = popupFullScreen.querySelector(".popup__foto"); // фотка  фулскрин попапа
-      const popupFotoName = popupFullScreen.querySelector(".popup__foto-name"); // текст фотки фулскрин попапа 
-      popupFoto.src = this._link; // картинка
-      popupFotoName.textContent = this._name;; // подпись 
-      popupFoto.alt = this._name;; // alt к картинке
     }
   }
 

@@ -1,7 +1,7 @@
 const initialCards = [
   {
     name: "Карачаево-Черкесся",
-    link: "images/karachaevsk.jpg"
+    link: "https://ttkufo34.ru/sites/default/files/gallery/tour/1266484493_1981893003_208524895_0.jpg"
   },
   {
     name: "Гора Эльбрус",
@@ -13,11 +13,11 @@ const initialCards = [
   },
   {
     name: "Байкал",
-    link: "images/baikal.jpg"
+    link: "https://static.tildacdn.com/tild3565-6636-4862-b932-386166353539/Baikal_main.jpg"
   },
   {
     name: "Петергоф",
-    link: "images/peterhof.jpg"
+    link: "https://kuda-spb.ru/uploads/b844f05a9a75236829636527a1caa7b0.jpg"
   },
   {
     name: "Кунгурская пещера",
