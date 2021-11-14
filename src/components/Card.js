@@ -39,7 +39,7 @@ class Card {
     _setEventListeners() {
       // для удаления
       this._element.querySelector(".element__delete").addEventListener("click", () => {
-        this._delitCard();
+        this._deliteCard();
       });
       // для лайка 
       this._element.querySelector(".element__like").addEventListener("click", () => {
@@ -52,9 +52,9 @@ class Card {
     }
 
     // функция удаления
-    _delitCard() {
+    _deliteCard() {
       this._element.remove();
-      this._element.innerHTML = null;
+      this._element = null;
     }
 
     // функция лайка

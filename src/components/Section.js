@@ -12,8 +12,13 @@ export class Section {
       });
   }
 
-  //публичный метод, который добавляем element в контейнер 
+  //публичный метод, который добавляем element в контейнер для массива
   addItem(element) {
     this._container.append(element); 
+  }
+
+  //публичный метод, который добавляем element в контейнер для новых карточек
+  addNewItem(element) {
+    this._container.prepend(element); 
   }
 }

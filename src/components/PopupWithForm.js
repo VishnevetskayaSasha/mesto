@@ -3,8 +3,9 @@ import {Popup} from "./Popup.js"
 export class PopupWithForm extends Popup {
   constructor ({popupSelector, handleFormSubmit}) { // кроме селектора попапа принимает в конструктор колбэк сабмита формы.
     super(popupSelector);
-    this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector(".popup__container");
+    this.handleFormSubmit = handleFormSubmit;
+    this._element = popupSelector;
+    this._form = this._element.querySelector(".popup__container");
   }
 
   // метод для сбора данных из всех полей
@@ -25,11 +26,13 @@ export class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners(); // вызываем родительский метод
     // дополним setEventListeners новой функциональностью
-    this._form.addEventListener("submit", (event) => {
-      event.preventDefault(); // чтоб страница не перезагружалась при отправке формы
-      this._handleFormSubmit(this._getInputValues()); 
-    });
-  }
+    this._form.addEventListener("submit", (event) => { 
+      event.preventDefault(); // чтоб страница не перезагружалась при отправке формы 
+      this.handleFormSubmit(this._getInputValues());  
+
+    }); 
+
+  } 
 
   // перезаписываем родительский метод close, при закрытии попапа форма должна сбрасываться.
   close() {
