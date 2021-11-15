@@ -35,10 +35,10 @@ const userInfoProfile = new UserInfo({
 // PopupWithForm для попапа редактирования профиля (также экземпляр PopupWithForm создаем и для попапа добавляения карточки на страницу)
 const popupProfileWithForm = new PopupWithForm ({
   popupSelector: popupProfile,
-   handleFormSubmit: () => { 
+  handleFormSubmit: () => { 
       // Добавление новой информации на страницу  + закрытие
-      userInfoProfile.setUserInfo(popupName.value, popupDescription.value); // информация из инпутов попапа редактирования профиля переносится на страницу
-      popupProfileWithForm.close();
+    userInfoProfile.setUserInfo(popupName.value, popupDescription.value); // информация из инпутов попапа редактирования профиля переносится на страницу
+    popupProfileWithForm.close();
 }
   });
 
@@ -92,7 +92,7 @@ const popupCardsWithForm = new PopupWithForm ({
       name: cardName.value,
       link: cardLink.value
     }
-   const newCard = addNewCard(item)
+    const newCard = addNewCard(item)
     cardsList.addNewItem(newCard);
     popupCardsWithForm.close(); //  чтоб автоматом закрывался popup после нажатия на "Создать"
   }
