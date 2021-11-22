@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Фотографии России">
+    <meta name="keywords" content="html, css, JavaScript">
+    <meta name="author" content="Саша Вишневецкая">
+    <title>Mesto</title>
+    <link rel="icon" href="de73457243dc1641a7f8.ico" type="image/png"> 
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <img src="03b78ada3425e9132ff3.svg" alt="Место логотип" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__general-information">
+          <img src="17ef039e5dd2885eedbd.png" alt="Аватар" class="profile__avatar">
+          <div class="profile__info">
+            <div class="profile__name-string">
+              <h1 class="profile__name">Жак-Ив Кусто</h1> 
+              <button type="button" class="profile__button-edit"></button>
+            </div>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+        </div>
+          <button type="button" class="profile__button-add"></button>
+      </section>
+      <section class="elements">
+        <ul class="elements__list">
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__signature">&copy; 2021 Mesto Russia </p>
+    </footer>
+  </div>
+  <div class="popup popup_type_profile">
+    <form name="edit-form" class="popup__container" novalidate>
+      <button type="button" class="popup__button-close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input type="text" id="edit-name" name="edit-name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_type_name" required  minlength="2" maxlength="40">
+      <span id="edit-name-error" class="error"></span>
+      <input type="text" id="edit-description" name="edit-description" placeholder="Исследователь океана" class="popup__input popup__input_type_description" required  minlength="2" maxlength="200">
+      <span id="edit-description-error" class="error"></span>
+      <button type="submit" class="popup__button popup__button_type_save">Сохранить</button>
+    </form>
+  </div>
+  <div class="popup popup_type_cards">
+    <form name="add-form" class="popup__container" novalidate>
+      <button type="button" class="popup__button-close"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <input type="text" id="edit-title" name="edit-title" placeholder="Название" class="popup__input popup__input_type_title" required  minlength="2" maxlength="30">
+      <span id="edit-title-error" class="error"></span>
+      <input type="url" id="edit-link" name="edit-link" placeholder="Ссылка на картинку" class="popup__input popup__input_type_link" required>
+      <span id="edit-link-error" class="error"></span>
+      <button type="submit" class="popup__button popup__button_type_create">Создать</button>
+    </form>
+  </div>
+  <div class="popup popup_type_img">
+    <figure class="figure">
+      <img src="#" class="popup__foto" alt="">
+      <button type="button" class="popup__button-close"></button>
+      <figcaption><p class="popup__foto-name"></p></figcaption>
+    </figure>
+  </div>
+  <template class="cards-template">
+    <li class="element">
+       <img src="#" class="element__foto" alt="">
+       <button type="button" class="element__delete"></button>
+        <div class="element__description">
+          <p class="element__name"></p>
+          <button type="button" class="element__like"></button>
+        </div>
+    </li>
+  </template> 
+</body>
+</html>
