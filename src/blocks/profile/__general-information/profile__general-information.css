@@ -1,6 +1,7 @@
 .profile__general-information{
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 @media (min-width: 550px) and (max-width: 700px) {

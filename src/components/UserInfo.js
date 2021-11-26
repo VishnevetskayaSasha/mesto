@@ -1,20 +1,25 @@
 // Класс отвечает за управление отображением информации о пользователе на странице
 export class UserInfo {
-  constructor ({userSelector, infoSelector}) { // Принимает в конструктор объект с селекторами двух элементов: элемента имени пользователя и элемента информации о себе.
+  constructor ({userSelector, infoSelector, avatarSelector}) { 
     this._userName = userSelector;
     this._userDescription = infoSelector;
+    this._userAvatar = avatarSelector;
   }
 
 // метод возвращает объект с данными пользователя для вставки в форму при открытии попапа
   getUserInfo() {
     return { 
-      nameInfo: this._userName.textContent,
-      descriptionInfo: this._userDescription.textContent,
+      name: this._userName.textContent,
+      about: this._userDescription.textContent,
+      avatar: this._userAvatar.src
     }
   }
+
+
 // метод принимает новые данные пользователя и добавляет их на страницу.
-  setUserInfo(nameInfo, descriptionInfo) {
-    this._userName.textContent = nameInfo;
-    this._userDescription.textContent = descriptionInfo;
+  setUserInfo(data) {
+    this._userName.textContent = data.name;
+    this._userDescription.textContent = data.about;
+    this._userAvatar.src = data.avatar;
   }
 }
