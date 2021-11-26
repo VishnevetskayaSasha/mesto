@@ -17,13 +17,14 @@
     <main class="content">
       <section class="profile">
         <div class="profile__general-information">
-          <img src="17ef039e5dd2885eedbd.png" alt="Аватар" class="profile__avatar">
+          <img src="07a3b34f019158f7439b.gif" alt="Аватар" class="profile__avatar">
+          <button class="profile__avatar-hover"></button>
           <div class="profile__info">
             <div class="profile__name-string">
-              <h1 class="profile__name">Жак-Ив Кусто</h1> 
+              <h1 class="profile__name"></h1> 
               <button type="button" class="profile__button-edit"></button>
             </div>
-            <p class="profile__description">Исследователь океана</p>
+            <p class="profile__description"></p>
           </div>
         </div>
           <button type="button" class="profile__button-add"></button>
@@ -66,13 +67,32 @@
       <figcaption><p class="popup__foto-name"></p></figcaption>
     </figure>
   </div>
+  <div class="popup popup_type_delete">
+    <form name="delete-form" class="popup__container">
+      <button type="button" class="popup__button-close"></button>
+      <h2 class="popup__title popup__title_delete">Вы уверены?</h2>
+      <button type="submit" class="popup__button popup__button_type_delete">Да</button>
+    </form>
+  </div>
+  <div class="popup popup_type_avatar">
+    <form name="avatar-form" class="popup__container">
+      <button type="button" class="popup__button-close"></button>
+      <h2 class="popup__title popup__title_avatar">Обновить аватар</h2>
+      <input type="url" id="edit-avatar-link" name="edit-avatar-link" placeholder="Ссылка на аватар" class="popup__input popup__input_type_avatar" required>
+      <span id="edit-avatar-link-error" class="error"></span>
+      <button type="submit" class="popup__button popup__button_type_save-avatar">Сохранить</button>
+    </form>
+  </div>
   <template class="cards-template">
     <li class="element">
        <img src="#" class="element__foto" alt="">
        <button type="button" class="element__delete"></button>
         <div class="element__description">
           <p class="element__name"></p>
-          <button type="button" class="element__like"></button>
+          <div class="element__container-like">
+            <button type="button" class="element__like"></button>
+            <span class="element__like-num">0</span>
+          </div>
         </div>
     </li>
   </template> 
