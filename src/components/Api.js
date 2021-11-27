@@ -55,9 +55,9 @@ export class Api {
       method: "PATCH", 
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.avatar,
-      }),
-    })
+        avatar: data.avatar
+      })
+    }) 
     .then((responce) => {
       return this._checkLineOk(responce)
     }) 
@@ -69,11 +69,12 @@ export class Api {
       method: "POST", 
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
+        name: data.title,
         link: data.link
       }) 
     })
     .then((responce) => {
+     // console.log(data)
       return this._checkLineOk(responce)
     }) 
   }

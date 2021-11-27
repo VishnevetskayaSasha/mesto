@@ -25,7 +25,7 @@ export class PopupWithSubmit extends Popup {
   }
 
   // отображение Сохранение на кнопке 
-  loading(isLoading) {
+  renderLoading(isLoading) {
     if (isLoading) {
       this._buttonSubmit.textContent = "Сохранение...";
     } else {
